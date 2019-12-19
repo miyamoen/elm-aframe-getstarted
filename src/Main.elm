@@ -2,12 +2,13 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 
 main =
-  scene [ "physics"] 
+  scene [ ] 
     [ box [ position -1 0.5 -3, rotation 0.0 45.0 0.0, color "#4CC3D9" ] [] 
     , sphere [ position 0.0 1.25 -5, radius 1.25, color "#EF2D5E" ] []
     , cylinder [ position 1 0.75 -3, radius 0.5, height 1.5, color "#FFC65D" ] []
     , plane [ position 0 0 -4, rotation -90 0 0, width 4, height 4, color "#7BC8A4" ] []
     , sky [ color "#ECECEC" ] [] 
+    , camera [] [ cursor [] [] ]
     ]
 
 
@@ -18,6 +19,13 @@ scene : List (Attribute msg) -> List (Html msg) -> Html msg
 scene =
     node "a-scene"
 
+cursor : List (Attribute msg) -> List (Html msg) -> Html msg
+cursor =
+    node "a-cursor"
+
+camera : List (Attribute msg) -> List (Html msg) -> Html msg
+camera =
+    node "a-camera"
 entity : List (Attribute msg) -> List (Html msg) -> Html msg
 entity =
     node "a-entity"
@@ -73,6 +81,4 @@ height value =
 width : Float -> Attribute msg
 width value =
     attribute "width" (String.fromFloat value)
-
-physics : String -> Attribute msg
-physics value = value
+    
