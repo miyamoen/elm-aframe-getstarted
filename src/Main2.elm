@@ -18,7 +18,7 @@ type alias Model = Int
 
 init : () -> (Model, Cmd Msg)
 init _ =
-    (0, Cmd.none)
+    (30, Cmd.none)
 
 
 type Msg
@@ -44,8 +44,8 @@ subscriptions model =
 view : Model -> Html Msg
 view model =
     scene []
-        [ button [ onClick Decrement ][ text "-" ]
-        , atext [ value (String.fromInt model ) ][]
+        [ button [ onClick Decrement, value "wwww" ][ text "-" ]
+        , atext [ value "wwwed"  ][]
         , button [ onClick Increment ][ text "+" ] 
         ]
 
